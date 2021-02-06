@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "247870204300",
+    "project_id": "homelifeapp-7c978",
+    "storage_bucket": "homelifeapp-7c978.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247870204300:android:72af52479336afacdf0ea9",
+        "android_client_info": {
+          "package_name": "com.amine.homelife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247870204300-memen9fl13vdo1tq8n0tbd25p53nbajv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc5TehF0LElyfEXFvUkhpbrxKobOrRZRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247870204300-memen9fl13vdo1tq8n0tbd25p53nbajv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

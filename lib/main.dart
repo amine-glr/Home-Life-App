@@ -1,5 +1,6 @@
+
 import 'package:flutter/material.dart';
-import 'package:home_life/Screens/Home.dart';
+import 'LandingPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,8 +17,11 @@ class MyApp extends StatelessWidget {
 
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: LandingPage(),
     );
   }
 }
+
+
+
 

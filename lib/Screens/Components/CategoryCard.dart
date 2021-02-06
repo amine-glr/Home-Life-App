@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:home_life/Models/Categories.dart';
 
@@ -27,8 +28,13 @@ class CategoryCard extends StatelessWidget {
                 color: category.color,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Image.asset(
-                category.image,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+
+                child: Image.asset(
+                  category.image,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

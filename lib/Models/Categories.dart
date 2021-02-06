@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'file:///D:/works/flutter/home_life/lib/Screens/ProductPages/BathroomPage.dart';
-import 'file:///D:/works/flutter/home_life/lib/Screens/ProductPages/HobbiesPage.dart';
-import 'file:///D:/works/flutter/home_life/lib/Screens/ProductPages/HomeDecorationPage.dart';
-import 'file:///D:/works/flutter/home_life/lib/Screens/ProductPages/KitchenPage.dart';
-import 'file:///D:/works/flutter/home_life/lib/Screens/ProductPages/LightingPage.dart';
-import 'file:///D:/works/flutter/home_life/lib/Screens/ProductPages/OfficeSuppliesPage.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/CategoryPages/BathroomPage.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/CategoryPages/HobbiesPage.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/CategoryPages/HomeDecorationPage.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/CategoryPages/KitchenPage.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/CategoryPages/LightingPage.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/CategoryPages/OfficeSuppliesPage.dart';
 
 class Categories{
 
