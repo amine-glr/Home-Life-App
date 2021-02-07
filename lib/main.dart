@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'LandingPage.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:home_life/Components/theme.dart';
+import 'package:home_life/Screens/LoginPages/SignInPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,11 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Home&Life',
-      theme: ThemeData(
-
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: LandingPage(),
+      theme: theme(),
+      home: SignInPage(),
     );
   }
 }

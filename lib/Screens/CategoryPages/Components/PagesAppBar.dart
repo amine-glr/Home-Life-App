@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:home_life/Screens/Home.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/HomePage/Home.dart';
+import 'package:home_life/Screens/LoginPages/LoginPage.dart';
+import 'package:home_life/Screens/LoginPages/SignInPage.dart';
 
 
 class PageAppBar extends StatelessWidget implements PreferredSizeWidget{
@@ -60,6 +62,11 @@ class PageAppBar extends StatelessWidget implements PreferredSizeWidget{
         ),
         IconButton(
           onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context)=> SignInPage(),
+                )
+            );
           },
           icon: Icon(
             Icons.person,
