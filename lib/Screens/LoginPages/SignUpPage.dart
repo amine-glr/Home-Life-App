@@ -1,18 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:home_life/Screens/HomePage/Home.dart';
 import 'package:home_life/Screens/LoginPages/Components/SignInForm.dart';
 import 'package:home_life/Screens/LoginPages/Components/SocialCard.dart';
-import 'package:home_life/Screens/LoginPages/SignUpPage.dart';
 
-class SignInPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
-
+class _SignUpPageState extends State<SignUpPage> {
   Future<void> _alertDialogBuilder(String error) async {
     return showDialog(
         context: context,
@@ -22,26 +19,27 @@ class _SignInPageState extends State<SignInPage> {
             title: Text("Error"),
             content: Container(
               child: Text(
-                  error
+                error
               ),
             ),
             actions: [
               FlatButton(
                   onPressed: (){
                     Navigator.pop(context);
-                  },
+              },
                   child: Text(
-                      "Close"
+                    "Close"
                   ))
             ],
           );
         }
-    );
+        );
   }
-  Future<String> _signInAccount() async{
+
+  Future<String> _createAccount() async{
     try{
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: _signInEmail, password: _signInPassword);
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _registerEmail, password: _registerPassword);
       return null;
     } on FirebaseAuthException catch(e){
       if (e.code == 'weak-password') {
@@ -56,24 +54,22 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   void _submitForm() async{
-    String _signInAccountFeedback= await _signInAccount();
-    if(_signInAccountFeedback != null){
-      _alertDialogBuilder(_signInAccountFeedback);
-    }
-    else{
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context)=> HomeScreen(),
-        ),
-      );
-    }
+      String _createAccountFeedback= await _createAccount();
+      if(_createAccountFeedback != null){
+          _alertDialogBuilder(_createAccountFeedback);
+      }
+      else{
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context)=> HomeScreen(),
+          ),
+        );
+      }
   }
 
 
-
-
-  String _signInEmail= "";
-  String _signInPassword="";
+  String _registerEmail= "";
+  String _registerPassword="";
 
   FocusNode _passwordFocusNode;
 
@@ -88,49 +84,43 @@ class _SignInPageState extends State<SignInPage> {
     super.dispose();
   }
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign In",
-        textAlign: TextAlign.center,
+        title: Text("Sign Up",
+          textAlign: TextAlign.center,
         ),
         centerTitle: true,
-
       ),
-        body: SafeArea(
-          child: SizedBox(
-            width: double.infinity,
-
+      body: SafeArea(
+        child: SizedBox(
+          width: double.infinity,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding:  EdgeInsets.symmetric(horizontal: 20),
               child: SingleChildScrollView(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text( "Welcome Back ",
-                        style:TextStyle(
-                            color: Colors.black,
-                            fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    Text( "Register Account ",
+                      style:TextStyle(
+                        color: Colors.black,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
 
-                    Text(" Sign in with your password \nor continue with social media",
-                   textAlign: TextAlign.center,
+                    Text(" Complete de necessary information \nor continue with social media",
+                      textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 40),
                     SignInForm(
-                        labelText: "Email",
-                        hintText: "Enter your email",
-                        icon: Icons.mail_outlined,
-                        inputType: TextInputType.emailAddress,
-                        obscureText: false ,
+                      labelText: "Email",
+                      hintText: "Enter your email",
+                      icon: Icons.mail_outlined,
+                      inputType: TextInputType.emailAddress,
+                      obscureText: false ,
                       onChanged: (value){
-                        _signInEmail= value;
+                        _registerEmail= value;
                       },
                       onSubmitted: (value){
                         _passwordFocusNode.requestFocus();
@@ -144,24 +134,24 @@ class _SignInPageState extends State<SignInPage> {
                       icon: Icons.vpn_key_outlined,
                       obscureText: true,
                       onChanged: (value){
-                        _signInPassword= value;
+                        _registerPassword= value;
                       },
                       focusNode: _passwordFocusNode,
                       onSubmitted: (value){
                         _submitForm();
                       },
                     ),
-                    SizedBox(height: 50),
+                    SizedBox(height: 20,),
                     SizedBox(
                       width: double.infinity,
                       height: 56,
                       child: FlatButton(
-                          onPressed: () {
-                            _submitForm();
+                        onPressed: () {
+                          _submitForm();
                           },
-                          child: Text("Continue", style: TextStyle(color: Colors.white, fontSize: 18),),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                          color: Colors.deepOrange,
+                        child: Text("Continue", style: TextStyle(color: Colors.white, fontSize: 18),),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        color: Colors.deepOrange,
                       ),
                     ),
                     SizedBox(height: 30),
@@ -174,48 +164,12 @@ class _SignInPageState extends State<SignInPage> {
                         SocialCard(icon: "assets/images/Twitter.png",),
                       ],
                     ),
-                    SizedBox(height: 20),
-
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Don't have an account?",
-                          style: TextStyle(color: Colors.black38),
-                        ),
-                        GestureDetector(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpPage(),
-                            ),);
-                          },
-
-                          child: Text("Sign Up", style: TextStyle(
-                            color: Colors.deepOrange,
-                          ),
-
-                          ),
-
-                        )
-
-                      ],
-
-                    ),
-
-
-
                   ],
                 ),
               ),
             ),
-          ),
         ),
+      ),
     );
   }
 }
-
-
-
-
-
-
-

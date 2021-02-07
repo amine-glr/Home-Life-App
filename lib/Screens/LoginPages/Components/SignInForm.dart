@@ -6,6 +6,10 @@ class SignInForm extends StatefulWidget {
   final IconData icon;
   final TextInputType inputType;
   final bool obscureText;
+  final Function(String) onChanged;
+  final Function(String) onSubmitted;
+  final FocusNode focusNode;
+  final TextInputAction textInputAction;
 
   const SignInForm({
     Key key,
@@ -14,6 +18,10 @@ class SignInForm extends StatefulWidget {
     @required this.icon,
     this.inputType,
     this.obscureText,
+    this.onChanged,
+    this.onSubmitted,
+    this.focusNode,
+    this.textInputAction,
   }) : super(key: key);
 
   @override
@@ -23,8 +31,6 @@ class SignInForm extends StatefulWidget {
 class _SignInFormState extends State<SignInForm> {
   final _formKey= GlobalKey<FormState>();
 
-  final List<String> errors = [];
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -33,15 +39,11 @@ class _SignInFormState extends State<SignInForm> {
         children: [
           TextFormField(
             keyboardType: widget.inputType,
-            validator: (value){
-              if(value.isEmpty){
-                setState((){
-                  errors.add("Email and password can not be empty");
-                });
-              }
-              return null;
-            },
-            obscureText: true,
+            obscureText: widget.obscureText,
+            onChanged: widget.onChanged,
+            onFieldSubmitted: widget.onSubmitted,
+            textInputAction: widget.textInputAction,
+            focusNode: widget.focusNode,
             decoration: InputDecoration(
               labelText: widget.labelText,
               hintText: widget.hintText,
