@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:home_life/Models/Categories.dart';
+import 'package:home_life/Screens/HomePage/Components/CategoryCard.dart';
+import 'package:home_life/Screens/LoginPages/SignInPage.dart';
 
-import 'Components/CategoryCard.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -42,6 +43,11 @@ class HomeScreen extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context)=> SignInPage(),
+                  ),
+                 );
               },
             icon: Icon(
               Icons.person,
