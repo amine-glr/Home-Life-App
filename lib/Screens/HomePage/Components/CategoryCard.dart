@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:home_life/Models/Categories.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/HomePage/Components/Categories.dart';
 
 class CategoryCard extends StatelessWidget {
   final Categories category;

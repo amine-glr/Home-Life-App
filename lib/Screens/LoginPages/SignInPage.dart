@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/RoundedButton.dart';
 import 'package:home_life/Screens/HomePage/Home.dart';
 import 'package:home_life/Screens/LoginPages/Components/SignInForm.dart';
-import 'package:home_life/Screens/LoginPages/Components/SocialCard.dart';
 import 'package:home_life/Screens/LoginPages/SignUpPage.dart';
 
 class SignInPage extends StatefulWidget {
@@ -118,8 +118,8 @@ class _SignInPageState extends State<SignInPage> {
                           fontWeight: FontWeight.bold,
                         ),
                     ),
-
-                    Text(" Sign in with your password \nor continue with social media",
+                    SizedBox(height: 10),
+                    Text(" Sign in with your email and password",
                    textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 40),
@@ -152,29 +152,16 @@ class _SignInPageState extends State<SignInPage> {
                       },
                     ),
                     SizedBox(height: 50),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 56,
-                      child: FlatButton(
-                          onPressed: () {
-                            _submitForm();
-                          },
-                          child: Text("Continue", style: TextStyle(color: Colors.white, fontSize: 18),),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                          color: Colors.deepOrange,
-                      ),
+                    RoundedButton(
+                      text: "Continue" ,
+                      onPressed: (){
+                        _submitForm();
+                      },
+                      color: Colors.deepOrange,
                     ),
+
                     SizedBox(height: 30),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SocialCard(icon: "assets/images/facebook.png",),
-                        SocialCard(icon: "assets/images/google.png",),
-                        SocialCard(icon: "assets/images/Twitter.png",),
-                      ],
-                    ),
-                    SizedBox(height: 20),
+
 
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,

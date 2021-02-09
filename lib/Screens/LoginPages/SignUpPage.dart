@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/RoundedButton.dart';
 import 'package:home_life/Screens/HomePage/Home.dart';
 import 'package:home_life/Screens/LoginPages/Components/SignInForm.dart';
 import 'package:home_life/Screens/LoginPages/Components/SocialCard.dart';
@@ -100,6 +102,7 @@ class _SignUpPageState extends State<SignUpPage> {
               padding:  EdgeInsets.symmetric(horizontal: 20),
               child: SingleChildScrollView(
                 child: Column(
+
                   children: [
                     Text( "Register Account ",
                       style:TextStyle(
@@ -109,10 +112,10 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
 
-                    Text(" Complete de necessary information \nor continue with social media",
+                    Text(" Complete de necessary information",
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 60),
                     SignInForm(
                       labelText: "Email",
                       hintText: "Enter your email",
@@ -141,29 +144,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         _submitForm();
                       },
                     ),
-                    SizedBox(height: 20,),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 56,
-                      child: FlatButton(
-                        onPressed: () {
-                          _submitForm();
-                          },
-                        child: Text("Continue", style: TextStyle(color: Colors.white, fontSize: 18),),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                        color: Colors.deepOrange,
-                      ),
+                    SizedBox(height: 40,),
+                    RoundedButton(
+                      text: "Continue" ,
+                      onPressed: (){
+                        _submitForm();
+                      },
+                      color: Colors.deepOrange,
                     ),
-                    SizedBox(height: 30),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SocialCard(icon: "assets/images/facebook.png",),
-                        SocialCard(icon: "assets/images/google.png",),
-                        SocialCard(icon: "assets/images/Twitter.png",),
-                      ],
-                    ),
+
                   ],
                 ),
               ),

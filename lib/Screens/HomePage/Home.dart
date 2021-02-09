@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:home_life/Models/Categories.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/HomePage/Components/Categories.dart';
 import 'package:home_life/Screens/HomePage/Components/CategoryCard.dart';
-import 'package:home_life/Screens/LoginPages/SignInPage.dart';
+import 'package:home_life/Screens/HomePage/Components/HomeAppBar.dart';
+
 
 
 class HomeScreen extends StatelessWidget {
@@ -10,52 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        actions: [
-          Expanded(
-              child:Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-            ),
-                child: TextField(
-              onChanged: (value) => print(value),
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 15,),
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  hintText: "Search product",
-                  prefixIcon: Icon(Icons.search)),
-            ),
-          ),
-        ),
-          IconButton(
-            onPressed: () {
-              },
-            icon: Icon(
-                Icons.shopping_cart_outlined,
-                color: Colors.orange),
-          ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context)=> SignInPage(),
-                  ),
-                 );
-              },
-            icon: Icon(
-              Icons.person,
-              color: Colors.orange,
-            ),
-          ),
-        ],
-      ),
+      appBar: HomeAppBar(),
 
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -82,5 +38,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
 
 
