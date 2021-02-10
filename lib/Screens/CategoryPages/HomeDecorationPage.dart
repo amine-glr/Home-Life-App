@@ -52,7 +52,7 @@ class _HomeDecorationPageState extends State<HomeDecorationPage> {
                       return ProductList(
                         title: document.data()['name'],
                         imageUrl: document.data()['image'],
-                        price: "\$${document.data()['price']}",
+                        price: "${document.data()['price']}TL",
                         productId: document.id,
                         productRef: widget._productRef,
                       );

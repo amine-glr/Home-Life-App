@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_life/Components/RoundedButton.dart';
 
 import 'package:home_life/Screens/ProductDetailPage/Components/DetailPageAppBar.dart';
+import 'package:home_life/Screens/Tabs/ShoppingBasket.dart';
 
 
 
@@ -97,6 +99,21 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                               fontWeight: FontWeight.normal,
                             ),
                           ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 30,
+                        child: FlatButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=> ShoppingBasket(),
+                              ),
+                            );
+                          },
+                          color: Colors.cyan ,
+                          child: Text ("Add to Card"),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                         ),
                       ),
                     ],
