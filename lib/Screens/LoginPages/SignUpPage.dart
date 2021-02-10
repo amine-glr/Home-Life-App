@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:home_life/Components/RoundedButton.dart';
 import 'package:home_life/Screens/HomePage/Home.dart';
 import 'package:home_life/Screens/LoginPages/Components/SignInForm.dart';
-import 'package:home_life/Screens/LoginPages/Components/SocialCard.dart';
+
 
 class SignUpPage extends StatefulWidget {
   @override
