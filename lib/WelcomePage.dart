@@ -8,27 +8,29 @@ import 'package:home_life/Screens/LoginPages/SignUpPage.dart';
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      body: SafeArea(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
 
           children: [
             Text(
               "WELCOME TO \nHOME&LIFE",
               style:
               GoogleFonts.getFont(
-                'Source Serif Pro',
+                'Overlock',
                 textStyle:TextStyle(
                   color: Colors.orange,
-                  fontSize: 24,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
 
                 ),
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 10,),
 
             Image.asset(
                "assets/images/Wavy_Bus-26_Single-01.jpg",
@@ -36,7 +38,7 @@ class WelcomeScreen extends StatelessWidget {
               width: 250,
             ),
 
-            SizedBox(height: 40,),
+            SizedBox(height: 20,),
             RoundedButton(
               text: "Sign In",
               onPressed: (){
@@ -47,7 +49,7 @@ class WelcomeScreen extends StatelessWidget {
               color: Colors.deepOrange,
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             RoundedButton(
               text: "Sign Up",
@@ -56,7 +58,7 @@ class WelcomeScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context)=>SignUpPage(),
                   ),);
               },
-              color: Colors.deepOrangeAccent,
+              color: Colors.deepOrange[300],
             ),
           ],
         ),

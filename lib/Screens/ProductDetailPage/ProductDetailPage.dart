@@ -1,7 +1,11 @@
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:home_life/Components/RoundedButton.dart';
+
+import 'package:home_life/Constants/Constants.dart';
 
 import 'package:home_life/Screens/ProductDetailPage/Components/DetailPageAppBar.dart';
 import 'package:home_life/Screens/Tabs/ShoppingBasket.dart';
@@ -17,12 +21,24 @@ class ProductDetailPage extends StatefulWidget {
 });
 
 
+
   @override
   _ProductDetailPageState createState() => _ProductDetailPageState();
 }
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
 
+  final CollectionReference _usersRef= FirebaseFirestore.instance.collection("Users");
+   String _selectedImage;
+   String _selectedName;
+   String _selectedPrice;
+
+  User _user =FirebaseAuth.instance.currentUser;
+
+  Future _addToCart(){
+    return _usersRef.doc(_user.uid).collection("Cart").doc(widget.productId).set(
+        {"image": _selectedImage, "price": _selectedPrice, "name": _selectedName});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +58,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 }
                 if(snapshot.connectionState== ConnectionState.done){
                   Map<String, dynamic> documentData = snapshot.data.data();
+
                   return ListView(
                     children: [
                       Image.network(
@@ -93,18 +110,19 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           "${documentData['desc']} ",
                           style: GoogleFonts.getFont(
                             'Source Serif Pro',
-                            textStyle:TextStyle(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal,
-                            ),
+                            textStyle: Constants.regularHeading,
                           ),
+
                         ),
                       ),
                       SizedBox(
-                        width: 30,
+                        width: 20,
                         child: FlatButton(
-                          onPressed: (){
+                          onPressed: () async{
+                            _selectedImage=  "${documentData['image']}";
+                            _selectedName=  "${documentData['name']} ";
+                            _selectedPrice="${documentData['price']} TL";
+                            await _addToCart();
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context)=> ShoppingBasket(),

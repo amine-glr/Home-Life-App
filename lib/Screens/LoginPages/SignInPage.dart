@@ -122,7 +122,13 @@ class _SignInPageState extends State<SignInPage> {
                     Text(" Sign in with your email and password",
                    textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 10),
+                    Image.asset(
+                      "assets/images/Wavy_Bus-26_Single-01.jpg",
+                      height: 150,
+                      width: 150,
+                    ),
+
                     SignInForm(
                         labelText: "Email",
                         hintText: "Enter your email",
@@ -151,7 +157,7 @@ class _SignInPageState extends State<SignInPage> {
                         _submitForm();
                       },
                     ),
-                    SizedBox(height: 50),
+                    SizedBox(height: 15),
                     RoundedButton(
                       text: "Continue" ,
                       onPressed: (){
@@ -160,7 +166,7 @@ class _SignInPageState extends State<SignInPage> {
                       color: Colors.deepOrange,
                     ),
 
-                    SizedBox(height: 30),
+                    SizedBox(height: 5),
 
 
                     Row(

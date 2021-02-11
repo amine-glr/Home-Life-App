@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_life/Screens/LoginPages/SignInPage.dart';
+import 'package:home_life/Screens/Tabs/ShoppingBasket.dart';
 
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -39,6 +40,11 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         IconButton(
           onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context)=> ShoppingBasket(),
+                )
+            );
           },
           icon: Icon(
               Icons.shopping_cart_outlined,

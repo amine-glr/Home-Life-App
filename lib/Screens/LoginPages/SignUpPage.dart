@@ -115,7 +115,15 @@ class _SignUpPageState extends State<SignUpPage> {
                     Text(" Complete de necessary information",
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 60),
+
+                    SizedBox(height: 5,),
+
+                    Image.asset(
+                      "assets/images/signIn.JPG",
+                      height: 200,
+                      width: 200,
+                    ),
+
                     SignInForm(
                       labelText: "Email",
                       hintText: "Enter your email",
@@ -144,7 +152,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         _submitForm();
                       },
                     ),
-                    SizedBox(height: 40,),
+                    SizedBox(height: 15,),
                     RoundedButton(
                       text: "Continue" ,
                       onPressed: (){
