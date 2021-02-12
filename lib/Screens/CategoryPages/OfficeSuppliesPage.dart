@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/bottomNavBar.dart';
 import 'package:home_life/Screens/CategoryPages/Components/PagesAppBar.dart';
 import 'package:home_life/Screens/CategoryPages/Components/ProductList.dart';
 
@@ -61,6 +62,7 @@ class _OfficeSuppliesPageState extends State<OfficeSuppliesPage> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }

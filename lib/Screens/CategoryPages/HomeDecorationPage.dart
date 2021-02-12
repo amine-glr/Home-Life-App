@@ -3,12 +3,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/bottomNavBar.dart';
 
 import 'package:home_life/Screens/CategoryPages/Components/PagesAppBar.dart';
 
 import 'package:home_life/Screens/CategoryPages/Components/ProductList.dart';
-
-
 
 
 class HomeDecorationPage extends StatefulWidget {
@@ -29,7 +28,8 @@ class _HomeDecorationPageState extends State<HomeDecorationPage> {
       appBar: PageAppBar(
       ),
       body: Container(
-        child: Stack(
+        child:
+          Stack(
           children: [
             FutureBuilder<QuerySnapshot>(
               future: widget._productRef.get(),
@@ -47,7 +47,7 @@ class _HomeDecorationPageState extends State<HomeDecorationPage> {
                   // Display the data inside a list view
                   return ListView(
                     padding: EdgeInsets.only(
-                      top: 108.0,
+                      top: 12.0,
                       bottom: 12.0,
                     ),
                     children: snapshot.data.docs.map((document) {
@@ -72,8 +72,11 @@ class _HomeDecorationPageState extends State<HomeDecorationPage> {
             ),
 
           ],
+
         ),
-       ),
+
+      ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }

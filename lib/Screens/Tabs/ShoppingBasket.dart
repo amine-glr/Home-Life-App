@@ -3,8 +3,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/bottomNavBar.dart';
 
 import 'package:home_life/FirebaseServices.dart';
+import 'package:home_life/Screens/Tabs/CardAppBar.dart';
 
 
 
@@ -21,17 +23,7 @@ class _ShoppingBasketState extends State<ShoppingBasket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.deepOrangeAccent,
-
-        title: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 60),
-          child: Text(
-            "Your Cart",
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
+      appBar: CardAppBar(),
       body: Stack(
         children: [
           FutureBuilder<QuerySnapshot>(
@@ -128,6 +120,8 @@ class _ShoppingBasketState extends State<ShoppingBasket> {
                                 ),
                               ],
                             ),
+                            
+
                           );
 
                         }
@@ -152,8 +146,15 @@ class _ShoppingBasketState extends State<ShoppingBasket> {
             },
           ),
 
+
+
+
         ],
       ),
+      bottomNavigationBar: BottomNavBar(),
+
+
+
 
     );
   }

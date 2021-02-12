@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/theme.dart';
 
 import 'package:home_life/LandingPage.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: theme(),
       title: 'Home&Life',
       home: LandingPage(),
     );

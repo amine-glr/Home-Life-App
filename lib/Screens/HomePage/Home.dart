@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/bottomNavBar.dart';
 import 'file:///D:/works/flutter/home_life/lib/Screens/HomePage/Components/Categories.dart';
 import 'package:home_life/Screens/HomePage/Components/CategoryCard.dart';
 import 'package:home_life/Screens/HomePage/Components/HomeAppBar.dart';
@@ -34,6 +35,7 @@ class HomeScreen extends StatelessWidget {
             ),
         ),
       ),
+      bottomNavigationBar: BottomNavBar(),
 
     );
   }

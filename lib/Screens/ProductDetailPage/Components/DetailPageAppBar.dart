@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/ShoppingCardButton.dart';
 import 'package:home_life/Screens/Tabs/ShoppingBasket.dart';
 
 
@@ -28,18 +29,9 @@ class DetailPageAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: Colors.white,
           ),
         ),
-        IconButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context)=> ShoppingBasket(),
-                )
-            );
-          },
-          icon: Icon(
-              Icons.shopping_cart_outlined,
-              color: Colors.white),
-        ),
+        Padding(
+          padding: EdgeInsets.only(right: 5),
+            child: ShoppingCardButton(color: Colors.white,)),
 
       ],
     );

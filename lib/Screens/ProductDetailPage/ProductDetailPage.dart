@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_life/Components/RoundedButton.dart';
 
 import 'package:home_life/Constants/Constants.dart';
 
@@ -42,6 +43,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: DetailPageAppBar(),
       body: Stack(
@@ -115,24 +117,21 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                        child: FlatButton(
-                          onPressed: () async{
-                            _selectedImage=  "${documentData['image']}";
-                            _selectedName=  "${documentData['name']} ";
-                            _selectedPrice="${documentData['price']} TL";
-                            await _addToCart();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context)=> ShoppingBasket(),
-                              ),
-                            );
-                          },
-                          color: Colors.cyan ,
-                          child: Text ("Add to Card"),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                        ),
+                      RoundedButton(
+                        onPressed: () async{
+                          _selectedImage=  "${documentData['image']}";
+                          _selectedName=  "${documentData['name']} ";
+                          _selectedPrice="${documentData['price']} TL";
+                          await _addToCart();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context)=> ShoppingBasket(),
+                            ),
+                          );
+                      },
+                        color: Colors.grey,
+                        text: "Add to Card",
+
                       ),
                     ],
                   );
