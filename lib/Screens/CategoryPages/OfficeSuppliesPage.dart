@@ -42,7 +42,7 @@ class _OfficeSuppliesPageState extends State<OfficeSuppliesPage> {
                       return ProductList(
                         title: document.data()['name'],
                         imageUrl: document.data()['image'],
-                        price: "${document.data()['price']}TL",
+                        price: "\$${document.data()['price']}",
                         productId: document.id,
                         productRef: widget._productRef,
                       );

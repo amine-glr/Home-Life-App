@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:home_life/Components/ShoppingCardButton.dart';
-import 'package:home_life/Screens/Tabs/ShoppingBasket.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/ShoppingCard/ShoppingCart.dart';
 
 
 class DetailPageAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,23 +17,44 @@ class DetailPageAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.deepOrangeAccent,
-      elevation: 0,
-      actions: <Widget>[
-
-        IconButton(
+      backgroundColor: Colors.transparent,
+      leading: SizedBox(
+          height: 40,
+          width: 40,
+          child: FlatButton(
+            padding: EdgeInsets.zero,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            color: Colors.white,
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_outlined, color: Colors.orange,),
+          ),
+        ),
+      actions: [
+        Padding(
+        padding: EdgeInsets.only(top: 8, right: 1,),
+        child: IconButton(
           onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context)=> ShoppingBasket(),
+              ),
+            );
           },
           icon: Icon(
             Icons.favorite_border_outlined,
-            color: Colors.white,
+            color: Colors.orange,
           ),
-        ),
+        ),),
         Padding(
-          padding: EdgeInsets.only(right: 5),
-            child: ShoppingCardButton(color: Colors.white,)),
+          padding: EdgeInsets.only(right: 10, top: 8,),
+            child: ShoppingCardButton(color: Colors.orange,)),
+
 
       ],
+
+
     );
   }
 }

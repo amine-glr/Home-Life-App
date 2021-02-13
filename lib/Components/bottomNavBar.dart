@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:home_life/Screens/HomePage/Home.dart';
+import 'package:home_life/Screens/Tabs/Favorites.dart';
 import 'package:home_life/Screens/Tabs/ProfilePage.dart';
-import 'package:home_life/Screens/Tabs/ShoppingBasket.dart';
+
 
 
 class BottomNavBar extends StatefulWidget {
@@ -28,15 +29,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
           Navigator.push(
               context,
               MaterialPageRoute(builder: (context)=> HomeScreen(),
-              )
+              ),
           );
         }
       if(_selectedIndex==1){
         Navigator.push(
             context,
-            MaterialPageRoute(builder: (context)=> ShoppingBasket(),
+            MaterialPageRoute(builder: (context)=> Favorites(),
             )
         );
+
       }
       if(_selectedIndex==2){
         Navigator.push(
@@ -44,6 +46,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             MaterialPageRoute(builder: (context)=> ProfilePage(),
             )
         );
+
       }
     });
   }
@@ -68,8 +71,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor: Colors.amber[800],
       onTap: _onItemTapped,
+      selectedItemColor: Colors.orange[600],
+
     );
   }
 }

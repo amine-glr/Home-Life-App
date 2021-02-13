@@ -17,7 +17,7 @@ class CardAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.deepOrangeAccent,
+      backgroundColor: Colors.orange[600],
       title: Padding(
         padding: EdgeInsets.only(left: 65),
         child: Text(

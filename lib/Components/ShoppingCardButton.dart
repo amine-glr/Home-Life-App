@@ -1,7 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:home_life/FirebaseServices.dart';
-import 'package:home_life/Screens/Tabs/ShoppingBasket.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/ShoppingCard/ShoppingCart.dart';
 
 class ShoppingCardButton extends StatelessWidget {
 

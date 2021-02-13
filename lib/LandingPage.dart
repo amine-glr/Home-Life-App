@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:home_life/Screens/LoginPages/SignInPage.dart';
-import 'package:home_life/WelcomePage.dart';
+import 'file:///D:/works/flutter/home_life/lib/Screens/WelcomePage.dart';
 
 class LandingPage extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
