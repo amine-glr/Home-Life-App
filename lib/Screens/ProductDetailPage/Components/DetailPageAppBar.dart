@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/FavoritesButton.dart';
 import 'package:home_life/Components/ShoppingCardButton.dart';
-import 'file:///D:/works/flutter/home_life/lib/Screens/ShoppingCard/ShoppingCart.dart';
+
+import 'package:home_life/Screens/Tabs/Favorites.dart';
 
 
 class DetailPageAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -33,24 +35,13 @@ class DetailPageAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       actions: [
         Padding(
-        padding: EdgeInsets.only(top: 8, right: 1,),
-        child: IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context)=> ShoppingBasket(),
-              ),
-            );
-          },
-          icon: Icon(
-            Icons.favorite_border_outlined,
-            color: Colors.orange,
-          ),
-        ),),
+            padding: EdgeInsets.only(right: 2, top: 8,),
+            child: FavoritesButton(color: Colors.orange, onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Favorites()));
+            },)),
         Padding(
           padding: EdgeInsets.only(right: 10, top: 8,),
             child: ShoppingCardButton(color: Colors.orange,)),
-
 
       ],
 

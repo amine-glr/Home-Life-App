@@ -4,19 +4,21 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:home_life/Components/RoundedButton.dart';
 import 'package:home_life/Components/bottomNavBar.dart';
 
 import 'package:home_life/Constants/Constants.dart';
 
 import 'package:home_life/Screens/ProductDetailPage/Components/DetailPageAppBar.dart';
-import 'file:///D:/works/flutter/home_life/lib/Screens/ShoppingCard/ShoppingCart.dart';
+
 
 
 
 class ProductDetailPage extends StatefulWidget {
   final String productId;
   final CollectionReference productRef;
+
 
   ProductDetailPage({
     this.productId, this.productRef,
@@ -30,7 +32,8 @@ class ProductDetailPage extends StatefulWidget {
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
 
-
+  bool isFavorite=false;
+  bool isAddCart=false;
 
   final CollectionReference _usersRef= FirebaseFirestore.instance.collection("Users");
    String _selectedImage;
@@ -43,6 +46,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     return _usersRef.doc(_user.uid).collection("Cart").doc(widget.productId).set(
         {"image": _selectedImage, "price": _selectedPrice, "name": _selectedName});
   }
+
+  Future _addToFavorites(){
+    return _usersRef.doc(_user.uid).collection("Favorites").doc(widget.productId).set(
+        {"image": _selectedImage, "price": _selectedPrice, "name": _selectedName});
+  }
+
 
 
   @override
@@ -145,8 +154,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       Container(
                         margin: EdgeInsets.only(top:20),
                         padding: EdgeInsets.only(top:20),
-                        width: double.infinity,
                         height: 100,
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -154,25 +163,53 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             topRight: Radius.circular(40),
                           ),
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.only(left: 40, right: 40,),
-                          child: RoundedButton(
-                            onPressed: () async{
-                              _selectedImage=  "${documentData['image']}";
-                              _selectedName=  "${documentData['name']} ";
-                              _selectedPrice="\$${documentData['price']} ";
-                              await _addToCart();
-                               Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context)=> ShoppingBasket(),
+                        child: Row(
+                          children:[
+                            Padding(
+                              padding: EdgeInsets.only(left: 30,right: 20),
+                              child: IconButton(
+                                iconSize: 36,
+                                onPressed:  ()async{
+                                  setState(() {
+                                    isFavorite=true;
+                                  });
+
+                                  _selectedImage=  "${documentData['image']}";
+                                  _selectedName=  "${documentData['name']} ";
+                                  _selectedPrice="\$${documentData['price']} ";
+                                  await _addToFavorites();
+
+                                },
+                                color: Colors.orange[800],
+                                icon: Icon( isFavorite ?  Icons.bookmark: Icons.bookmark_border_outlined
                                 ),
-                              );
-                            },
-                            color:  Colors.orange[800],
-                            text: "Add to Card",
-                          ),
+                              ),
+                            ),
+                            Container(
+                              width: 250,
+                              child: Padding(
+                                padding: EdgeInsets.only( right: 5,),
+                                child: RoundedButton(
+                                  onPressed: () async{
+                                    setState(() {
+                                      isAddCart=true;
+                                    });
+
+                                    _selectedImage=  "${documentData['image']}";
+                                    _selectedName=  "${documentData['name']} ";
+                                    _selectedPrice="\$${documentData['price']} ";
+                                    await _addToCart();
+                                  },
+                                  color: isAddCart ?  Colors.orange[800] : Colors.grey,
+                                  text: "Add to Card",
+                                ),
+                              ),
+                            ),
+
+                          ]
                         ),
                       ),
+
 
 
 

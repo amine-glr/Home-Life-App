@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/FavoritesButton.dart';
 import 'package:home_life/Components/ShoppingCardButton.dart';
+import 'package:home_life/Screens/Tabs/Favorites.dart';
 
 
 
@@ -38,6 +40,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
         ),
+        Padding(
+            padding: EdgeInsets.only(right: 2,),
+            child: FavoritesButton(color: Colors.orange, onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Favorites()));
+            },)),
+
         Padding(
           padding: EdgeInsets.only(right: 10),
             child: ShoppingCardButton(color: Colors.orange,)),
