@@ -45,6 +45,7 @@ class _HobbiesPageState extends State<HobbiesPage> {
                         price: "\$${document.data()['price']}",
                         productId: document.id,
                         productRef: widget._productRef,
+                        color: Colors.brown,
                       );
                     }).toList(),
                   );

@@ -34,7 +34,7 @@ class _ShoppingBasketState extends State<ShoppingBasket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CardAppBar(),
+      appBar: CardAppBar(title:"Your Cart"),
       body: Stack(
         children: [
           FutureBuilder<QuerySnapshot>(

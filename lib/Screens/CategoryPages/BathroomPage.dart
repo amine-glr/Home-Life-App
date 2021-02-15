@@ -45,6 +45,7 @@ class _BathroomPageState extends State<BathroomPage> {
                         price: "\$${document.data()['price']}",
                         productId: document.id,
                         productRef: widget._productRef,
+                        color: Colors.blue,
                       );
                     }).toList(),
                   );

@@ -45,6 +45,7 @@ class _OfficeSuppliesPageState extends State<OfficeSuppliesPage> {
                         price: "\$${document.data()['price']}",
                         productId: document.id,
                         productRef: widget._productRef,
+                        color: Colors.teal,
                       );
                     }).toList(),
                   );

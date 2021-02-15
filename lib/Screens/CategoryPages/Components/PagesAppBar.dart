@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:home_life/Components/FavoritesButton.dart';
 import 'package:home_life/Components/ShoppingCardButton.dart';
 import 'file:///D:/works/flutter/home_life/lib/Screens/HomePage/Home.dart';
-import 'package:home_life/Screens/Tabs/Favorites.dart';
+
 
 
 
@@ -57,9 +57,7 @@ class PageAppBar extends StatelessWidget implements PreferredSizeWidget{
         ),
         Padding(
             padding: EdgeInsets.only(right: 2, top: 6,),
-            child: FavoritesButton(color: Colors.orange, onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> Favorites()));
-            },)),
+            child: FavoritesButton(color: Colors.orange, )),
         Padding(
             padding: EdgeInsets.only(right: 10,  top: 6,),
             child: ShoppingCardButton(color: Colors.orange,)),

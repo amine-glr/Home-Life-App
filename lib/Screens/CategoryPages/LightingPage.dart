@@ -45,6 +45,7 @@ class _LightingPageState extends State<LightingPage> {
                         price: "\$${document.data()['price']}",
                         productId: document.id,
                         productRef: widget._productRef,
+                        color: Colors.amberAccent,
                       );
                     }).toList(),
                   );

@@ -14,10 +14,11 @@ class ProductList extends StatelessWidget {
   final String title;
   final String price;
   final CollectionReference productRef;
+  final Color color;
 
 
   ProductList({
-    this.productId, this.onPressed, this.imageUrl, this.title, this.price, this.productRef
+    this.productId, this.onPressed, this.imageUrl, this.title, this.price, this.productRef, this.color
 });
 
 
@@ -34,14 +35,22 @@ class ProductList extends StatelessWidget {
             ),);
           },
           child: Container(
-            decoration: BoxDecoration(
+            decoration:  BoxDecoration(
               borderRadius: BorderRadius.circular(12),
+              border: Border (
+                top: BorderSide(width: 5.0, color: color),
+                left: BorderSide(width: 5.0, color: color),
+                right: BorderSide(width: 5.0, color: color),
+                bottom: BorderSide(width: 5.0, color: color),
+              ),
+
             ),
             height: 350,
             margin: EdgeInsets.symmetric(
               vertical: 12,
               horizontal: 24,
             ),
+
             child: Stack(
                 fit: StackFit.loose,
                 children: [

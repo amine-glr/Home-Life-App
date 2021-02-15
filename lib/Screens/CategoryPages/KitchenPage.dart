@@ -45,6 +45,7 @@ class _KitchenPageState extends State<KitchenPage> {
                         price: "\$${document.data()['price']}",
                         productId: document.id,
                         productRef: widget._productRef,
+                        color: Colors.indigo,
                       );
                     }).toList(),
                   );

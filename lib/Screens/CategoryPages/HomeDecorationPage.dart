@@ -11,9 +11,8 @@ import 'package:home_life/Screens/CategoryPages/Components/ProductList.dart';
 
 
 class HomeDecorationPage extends StatefulWidget {
+
   final CollectionReference _productRef= FirebaseFirestore.instance.collection("DecProducts");
-
-
 
   @override
   _HomeDecorationPageState createState() => _HomeDecorationPageState();
@@ -57,6 +56,7 @@ class _HomeDecorationPageState extends State<HomeDecorationPage> {
                         price: "\$${document.data()['price']}",
                         productId: document.id,
                         productRef: widget._productRef,
+                        color: Colors.lightGreen,
                       );
                     }).toList(),
                   );

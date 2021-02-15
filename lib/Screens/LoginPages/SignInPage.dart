@@ -124,7 +124,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     SizedBox(height: 10),
                     Image.asset(
-                      "assets/images/Wavy_Bus-26_Single-01.jpg",
+                      "assets/images/Wavy_Tech-28_Single-10.jpg",
                       height: 150,
                       width: 150,
                     ),

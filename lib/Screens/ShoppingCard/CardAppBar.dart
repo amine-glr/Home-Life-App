@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:home_life/Components/FavoritesButton.dart';
 import 'package:home_life/Components/ShoppingCardButton.dart';
 
 
@@ -7,12 +8,12 @@ import 'package:home_life/Components/ShoppingCardButton.dart';
 class CardAppBar extends StatelessWidget implements PreferredSizeWidget{
 
   CardAppBar({
-    Key key,
+    Key key, this.title,
   }) : preferredSize = Size.fromHeight(kToolbarHeight) ,super(key: key);
 
   @override
   final Size preferredSize;
-
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +22,16 @@ class CardAppBar extends StatelessWidget implements PreferredSizeWidget{
       title: Padding(
         padding: EdgeInsets.only(left: 65),
         child: Text(
-          "Your Card",
+          title,
               style: TextStyle(
             color: Colors.white,
         ),
         ),
       ),
         actions:[
+          Padding(
+              padding: EdgeInsets.only(right: 2,),
+              child: FavoritesButton(color: Colors.white,)),
           Padding(
             padding: EdgeInsets.only(right: 10),
               child: ShoppingCardButton(color: Colors.white,)),

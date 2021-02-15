@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:home_life/Components/bottomNavBar.dart';
+import 'package:home_life/Screens/ShoppingCard/CardAppBar.dart';
 
 import '../../FirebaseServices.dart';
 
@@ -23,19 +25,7 @@ class _FavoritesState extends State<Favorites> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.orange[600],
-          title: Padding(
-            padding: EdgeInsets.only(left: 65),
-            child: Text(
-              "Favorites",
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-
-      ),
+      appBar: CardAppBar(title:"Favorites"),
       body: Stack(
         children: [
           FutureBuilder<QuerySnapshot>(

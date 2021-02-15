@@ -1,17 +1,18 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:home_life/Screens/Tabs/Favorites.dart';
 
 import '../FirebaseServices.dart';
 
 class FavoritesButton extends StatelessWidget {
 
   final Color color;
-  final Function onPressed;
+
 
   FirebaseServices _firebaseServices = FirebaseServices();
 
   FavoritesButton({
-    this.color, this.onPressed
+    this.color,
         });
 
   @override
@@ -38,7 +39,13 @@ class FavoritesButton extends StatelessWidget {
             ),
           ),
           child:IconButton(
-            onPressed: onPressed,
+            onPressed: (){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context)=> Favorites(),
+                  )
+              );
+            },
 
             icon: Icon(
                 Icons.favorite_border_outlined,

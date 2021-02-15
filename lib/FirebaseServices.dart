@@ -12,9 +12,10 @@ class FirebaseServices{
 
   final CollectionReference usersRef= FirebaseFirestore.instance.collection("Users");
 
-  final CollectionReference productRef= FirebaseFirestore.instance.collection("DecProducts");
-
   final CollectionReference cartProductRef= FirebaseFirestore.instance.collection("Users");
+
+
+
 
 
 }

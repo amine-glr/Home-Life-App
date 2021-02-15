@@ -1,6 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:home_life/Screens/HomePage/Home.dart';
-import 'package:home_life/Screens/Tabs/Favorites.dart';
+
+
 import 'package:home_life/Screens/Tabs/ProfilePage.dart';
 
 
@@ -17,30 +19,26 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
-
+  bool _selected=false;
 
 
 
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-        if(_selectedIndex==0){
-          Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context)=> HomeScreen(),
-              ),
-          );
-        }
-      if(_selectedIndex==1){
-        Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context)=> Favorites(),
-            )
-        );
 
+    _selectedIndex = index;
+
+    setState(() {
+      if(_selectedIndex==0){
+        _selected=true;
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context)=> HomeScreen(),
+          ),
+        );
       }
-      if(_selectedIndex==2){
+      if(_selectedIndex==1){
+        _selected=true;
         Navigator.push(
             context,
             MaterialPageRoute(builder: (context)=> ProfilePage(),
@@ -49,6 +47,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
       }
     });
+
+
+
+
   }
 
   @override
@@ -61,18 +63,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.favorite
+            Icons.person
           ),
-          label: 'Favorites',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
           label: 'Profile',
         ),
+
       ],
       currentIndex: _selectedIndex,
       onTap: _onItemTapped,
-      selectedItemColor: Colors.orange[800],
+      selectedItemColor: _selected? Colors.grey[850]: Colors.orange[800],
 
     );
   }
