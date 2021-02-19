@@ -1,6 +1,6 @@
 # home_life
 
-A new Flutter application.
+It is a e-commerce app build with flutter firebase. User should sign up to app in order to use the app. After that user should sign in to enter the app. User can look into categories add products to his/her cart and favorties. User can delete products from cart and favorites. 
 
 ## Getting Started
 
